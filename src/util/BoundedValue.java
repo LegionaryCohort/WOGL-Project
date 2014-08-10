@@ -38,7 +38,7 @@ public class BoundedValue
 	}
 
 	/**
-	 * Sets new boundaries.
+	 * Sets new boundaries and checks the current value
 	 * 
 	 * @param pBoundaries
 	 *            the array contains the values of the boundaries
