@@ -223,9 +223,8 @@ public class DNA
 	}
 
 	/**
-	 * norms all values to new minimum and maximum values and returns a double-array.
-	 * <p>
-	 * The actual minimum and maximum values of the DNA-set will not be changed!
+	 * norms all values to new minimum and maximum values and returns a double-array. <br>
+	 * The current minimum and maximum values of the DNA-set will not be changed!
 	 * 
 	 * @param pMin
 	 *            new minimum value.
@@ -244,9 +243,26 @@ public class DNA
 			double[] ret = new double[genes.length];
 			for (int i = 0; i < genes.length; i++)
 			{
-				ret[i] = (genes[i] - minValue) / (maxValue - minValue) * (pMax - pMin) + pMin;
+				ret[i] = getNormedGene(i, pMin, pMax);
 			}
 			return ret;
 		}
+	}
+
+	/**
+	 * norms a gene to a new minimum and maximum value and returns it.<br>
+	 * the current minimum and maximum values of the DNA-set will not be changed!
+	 * 
+	 * @param pIndex
+	 *            index of the gene
+	 * @param pMin
+	 *            new minimum value.
+	 * @param pMax
+	 *            new maximum value.
+	 * @return the normed gene of the specified index
+	 */
+	public double getNormedGene(int pIndex, double pMin, double pMax)
+	{
+		return (genes[pIndex] - minValue) / (maxValue - minValue) * (pMax - pMin) + pMin;
 	}
 }

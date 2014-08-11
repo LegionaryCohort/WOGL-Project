@@ -96,7 +96,7 @@ public abstract class NeuralLayerNet
 	{
 		if (pDNA.getNumberOfGenes() != this.getNumberOfNeededGenes())
 		{
-			throw new IllegalArgumentException("length mismatch: number of genes (" + pDNA.getNumberOfGenes() + ") has to match number of needed genes (" + this.getNumberOfNeededGenes() + ")");
+			throw new IllegalArgumentException("length mismatch: number of genes (" + pDNA.getNumberOfGenes() + ") must match number of needed genes (" + this.getNumberOfNeededGenes() + ")");
 		}
 		else
 		{

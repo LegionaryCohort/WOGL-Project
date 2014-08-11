@@ -6,6 +6,7 @@ package simulation.world.worldObjects.neural;
  * @version 1.0
  */
 
+import simulation.Constants;
 import simulation.world.worldObjects.DNA;
 import util.Pair;
 
@@ -99,7 +100,7 @@ public class NeuralCell
 			{
 				link[i].getX().addMemory(memory * link[i].getY());
 			}
-			memory = 0;
+			memory = 0.0;
 		}
 	}
 
@@ -117,7 +118,7 @@ public class NeuralCell
 	 * @throws IllegalArgumentException
 	 *             if the number of genes in pDNA don't match the number of needed genes of the cell
 	 */
-	public void construct(DNA pDNA)
+	public void construct(DNA pDNA) throws IllegalAccessException
 	{
 		if (pDNA.getNumberOfGenes() != getNumberOfNeededGenes())
 		{
@@ -125,7 +126,7 @@ public class NeuralCell
 		}
 		else
 		{
-			double[] normed = pDNA.normTo(-1, +1);
+			double[] normed = pDNA.normTo(Constants.NEURAL_CELL.getDoubleValue(0), Constants.NEURAL_CELL.getDoubleValue(1));
 			for (int i = 0; i < link.length; i++)
 			{
 				link[i].setY(normed[i]);
