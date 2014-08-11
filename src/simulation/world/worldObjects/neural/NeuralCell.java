@@ -19,7 +19,7 @@ public class NeuralCell
 	 * Constructor, which connects this cell with every cell in the pConnectedCells - array.
 	 * 
 	 * @param pConnectedCells
-	 *            contains every NeuralCell, which is connected with this
+	 *            contains every NeuralCell that is connected with this
 	 */
 	public NeuralCell(NeuralCell... pConnectedCells)
 	{
@@ -55,13 +55,11 @@ public class NeuralCell
 	}
 
 	/**
-	 * Adds a value (pMemory) to the stored value of the cell.
-	 * <p>
+	 * Adds a value (pMemory) to the stored value of the cell. <br>
 	 * new stored value = old stored value + pMemory
-	 * <p>
 	 * 
 	 * @param pMemory
-	 *            the value, which is added to the stored value
+	 *            the value that is added to the stored value
 	 */
 	public void addMemory(double pMemory)
 	{
@@ -69,8 +67,7 @@ public class NeuralCell
 	}
 
 	/**
-	 * Calculates the number of genes that are necessary for the construction of the cell (method: construct(DNA)).
-	 * <p>
+	 * Calculates the number of genes that are necessary for the construction of the cell (method: construct(DNA)). <br>
 	 * The number of needed genes matches the number of linked cells, because every link has a value/weight.
 	 * <p>
 	 * 
@@ -88,8 +85,7 @@ public class NeuralCell
 	}
 
 	/**
-	 * Pushes the stored value (= memory) to the connected cells.
-	 * <p>
+	 * Pushes the stored value (= memory) to the connected cells. <br>
 	 * Thereafter, the stored value is reset to 0.
 	 */
 	public void push()
@@ -105,12 +101,9 @@ public class NeuralCell
 	}
 
 	/**
-	 * Overwrites every link-value/weight with values between -1 and 1 depending on the given DNA (pDNA).
-	 * <p>
-	 * Therefore all values in the DNA will be normed to -1 and 1.
-	 * <p>
-	 * The minValue of the given DNA is calculated to be -1 and the maxValue to be 1.
-	 * <p>
+	 * Overwrites every link-value/weight with values between -1 and 1 depending on the given DNA (pDNA). <br>
+	 * Therefore all values in the DNA will be normed to -1 and 1. <br>
+	 * The minValue of the given DNA is calculated to be -1 and the maxValue to be 1. <br>
 	 * The old values of the links will be lost.
 	 * 
 	 * @param pDNA

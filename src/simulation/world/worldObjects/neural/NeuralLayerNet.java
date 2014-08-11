@@ -45,15 +45,19 @@ public abstract class NeuralLayerNet
 	}
 
 	/**
-	 * Returns the output-layer of the net.
-	 * <p>
+	 * Returns the memory-values of output-layer of the net. <br>
 	 * This is the layer with index: layer.length - 1
 	 * 
-	 * @return output-layer
+	 * @return memory-values of the output-layer
 	 */
-	protected NeuralCell[] getOutputLayer()
+	protected double[] getOutput()
 	{
-		return layer[layer.length - 1];
+		double[] result = new double[layer[layer.length - 1].length];
+		for (int i = 0; i < result.length; i++)
+		{
+			result[i] = layer[layer.length - 1][i].getMemory();
+		}
+		return result;
 	}
 
 	/**
@@ -92,7 +96,7 @@ public abstract class NeuralLayerNet
 	 * @throws IllegalArgumentException
 	 *             if the number of genes in pDNA don't match the number of needed genes of the net
 	 */
-	public void construct(DNA pDNA)
+	public void construct(DNA pDNA) throws IllegalAccessException
 	{
 		if (pDNA.getNumberOfGenes() != this.getNumberOfNeededGenes())
 		{
@@ -129,13 +133,13 @@ public abstract class NeuralLayerNet
 	}
 
 	/**
-	 * Calculates every input
+	 * Calculates every input through the interlayer to the output-layer.
 	 */
 	public void calculateNet()
 	{
-		for (int k = 0; k < layer[layer.length - 1].length; k++)
+		for (int k = 0; k < getOutputLayer().length; k++)
 		{
-			layer[layer.length - 1][k].setMemory(0.0);
+			getOutputLayer()[k].setMemory(0.0);
 		}
 		for (int i = 0; i < layer.length - 1; i++)
 		{
@@ -146,7 +150,7 @@ public abstract class NeuralLayerNet
 		}
 	}
 
-	public abstract void interpretOutput();
+	public abstract double[] interpretOutput();
 
-	public abstract void setInput();
+	public abstract void setInput(double[] pInput);
 }

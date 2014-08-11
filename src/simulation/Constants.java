@@ -3,30 +3,27 @@ package simulation;
 public enum Constants
 {
 	/**
-	 * EXAMPLE
-	 * Contains 6 numerical values and 1 boolean value.
+	 * Contains 8 numerical values and 0 boolean value.
 	 * <p>
 	 * Numerical values:<br>
-	 * 0 - colour-R<br>
-	 * 1 - colour-G<br>
-	 * 2 - colour-B<br>
+	 * 0 - color-R<br>
+	 * 1 - color-G<br>
+	 * 2 - color-B<br>
 	 * 3 - nourishment-value<br>
-	 * 4 - growth speed<br>
-	 * 5 - size
-	 * <p>
-	 * Boolean values: <br>
-	 * 0 - collision detection enabled
+	 * 4 - grow time 0 -> 1<br>
+	 * 5 - grow time 1 -> 2 (first time)<br>
+	 * 6 - re-grow time 1 -> 2 <br>
+	 * 7 - size
 	 */
-	PLANT(new double[] { 35, 175, 75, 3.5, 0.45, 1.3 }, new boolean[] { false }),
+	PLANT(new double[] { 35, 175, 75, 50, 10000, 10000, 5000, 50 }),
 
 	/**
-	 * EXAMPLE
 	 * Contains 3 numerical values and 0 boolean values.
 	 * <p>
 	 * Numerical values:<br>
-	 * 0 - colour-R<br>
-	 * 1 - colour-G<br>
-	 * 2 - colour-B
+	 * 0 - color-R<br>
+	 * 1 - color-G<br>
+	 * 2 - color-B
 	 */
 	ROCK(new double[] { 100, 100, 100 }),
 
@@ -38,7 +35,7 @@ public enum Constants
 	 * 1 - minimum value of a gene<br>
 	 * 2 - maximum value of a gene
 	 */
-	DNA(new double[] { 50, -1000, 1000 }),
+	DNA(new double[] { 1610, -1000, 1000 }),
 
 	/**
 	 * Contains 2 numerical values and 0 boolean values.
@@ -58,17 +55,19 @@ public enum Constants
 	 * 2 - number of cells of the 2. interlayer<br>
 	 * 3 - number of output-cells
 	 */
-	BRAIN(new double[] { 30, 25, 25, 20 }),
+	BRAIN(new double[] { 33, 25, 20, 14 }),
 
 	/**
-	 * Contains 3 numerical value and 0 boolean values.
+	 * Contains 4 numerical value and 0 boolean values.
 	 * <p>
 	 * Numerical values:<br>
-	 * 0 - number of genes (size(1), color(3), meat/plant-efficiency(2))<br>
+	 * 0 - number of genes (size(1), color(3), meat/plant-efficiency(1))<br>
 	 * 1 - minimum size<br>
 	 * 2 - maximum size<br>
+	 * 3 - border of efficiency (the border in which case the efficiency will get the maximum efficiency-value)<br>
+	 * 4 - maximum efficiency<br>
 	 */
-	BODY(new double[] { 5, 100, 300 });
+	BODY(new double[] { 5, 100, 300, 0.9, 1.1 });
 
 	private double[]	doubleValues;
 	private boolean[]	booleanValues;

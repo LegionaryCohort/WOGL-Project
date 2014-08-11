@@ -25,6 +25,9 @@ public class Body extends WorldObject
 		this.position = pPosition;
 	}
 
+	/**
+	 * Calculates movement of the body.
+	 */
 	public void move()
 	{
 		position.setX(position.getX() + velocity.getX());
@@ -43,11 +46,6 @@ public class Body extends WorldObject
 	 */
 	public int getNumberOfNeededGenes() throws IllegalAccessException
 	{
-		// part of the body: number of needed genes
-		// size: 1
-		// color: 3
-		// meat/plant-efficiency: 2
-
 		return Constants.BODY.getIntValue(0);
 	}
 
@@ -78,15 +76,15 @@ public class Body extends WorldObject
 			// meat/plant-efficiency
 			meatEfficiency = pDNA.getNormedGene(4, 0, 1);
 			plantEfficiency = 1 - meatEfficiency;
-			if (meatEfficiency > 0.9)
+			if (meatEfficiency > Constants.BODY.getDoubleValue(3))
 			{
-				meatEfficiency = 1.1;
+				meatEfficiency = Constants.BODY.getDoubleValue(4);
 				plantEfficiency = 0;
 			}
-			else if (plantEfficiency > 0.9)
+			else if (plantEfficiency > Constants.BODY.getDoubleValue(3))
 			{
 				meatEfficiency = 0;
-				plantEfficiency = 1.1;
+				plantEfficiency = Constants.BODY.getDoubleValue(4);
 			}
 		}
 	}
