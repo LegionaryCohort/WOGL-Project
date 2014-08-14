@@ -11,18 +11,17 @@ public class Body extends WorldObject
 	private BoundedValue			food;
 	private double					size;
 	private Pair<Double, Double>	velocity;
-	private Pair<Double, Double>	position;
 	private java.awt.Color			color;
 	private double					meatEfficiency;
 	private double					plantEfficiency;
 
 	public Body(double pLife, double pFood, Pair<Double, Double> pPosition)
 	{
-		super();
+		super(pPosition, 1.0);
 		this.life = new BoundedValue(pLife, new double[] { 0.0, 1.0 }, new boolean[] { true, false });
 		this.food = new BoundedValue(pFood, new double[] { 0.0, 1.0 }, new boolean[] { true, false });
 		this.velocity = new Pair<Double, Double>(0.0, 0.0);
-		this.position = pPosition;
+
 	}
 
 	/**
@@ -30,8 +29,7 @@ public class Body extends WorldObject
 	 */
 	public void move()
 	{
-		position.setX(position.getX() + velocity.getX());
-		position.setY(position.getY() + velocity.getY());
+		this.move(velocity);
 	}
 
 	/**
@@ -67,6 +65,7 @@ public class Body extends WorldObject
 		{
 			// size
 			this.size = pDNA.getNormedGene(0, Constants.BODY.getDoubleValue(1), Constants.BODY.getDoubleValue(2));
+
 			this.life.setBoundaries(new double[] { 0.0, this.size }, new boolean[] { true, true });
 			this.food.setBoundaries(new double[] { 0.0, this.size }, new boolean[] { true, true });
 

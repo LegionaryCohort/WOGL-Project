@@ -61,7 +61,7 @@ public enum Constants
 	 * Contains 4 numerical value and 0 boolean values.
 	 * <p>
 	 * Numerical values:<br>
-	 * 0 - number of genes (size(1), color(3), meat/plant-efficiency(1))<br>
+	 * 0 - number of genes (size(1), color(3), meat/plant-efficiency(2))<br>
 	 * 1 - minimum size<br>
 	 * 2 - maximum size<br>
 	 * 3 - border of efficiency (the border in which case the efficiency will get the maximum efficiency-value)<br>
